@@ -7,7 +7,7 @@ Here's where I'll put info and usages for assignments.
 Run this script to extract the number of reads from a collection of .fastq files, and to place ouptut from each .fastq into a .txt file that corresponds to the name of the .fastq.
 
 ``` 
-sbatch challenge3.sh
+sbatch EvoAnalysis_S26/slurms/challenge3.sh
 ```
 
 See comments within the script for functionality, see outupt in: 
