@@ -1,5 +1,9 @@
 #!/bin/bash
 
+## challenge3.sh by SPJ on 011426
+## PURPOSE: practice slurm array setup by counting reads in a set of .fastq's
+## USAGE: sbatch challenge3.sh
+
 #SBATCH --job-name=countreads
 #SBATCH --account=evoanalysis
 #SBATCH --time=12:00:00
@@ -23,11 +27,17 @@ files=(*.fastq)
 # specify the working file using bash indexing
 work_file=${files[($SLURM_ARRAY_TASK_ID-1)]}
 
-# count reads for the working file, store that outuput in a new file corresponding to the 
-# name of the working .fastq
-grep -c "^@" "$work_file" > "readcount_${work_file}.txt"
+# count reads for the working file, store that in this new variable, read_count
+read_count=$(grep -c "^@" "$work_file")
 
+# now, print the working file name, and the read count (tab delimited), and write that to
+# the output file that corresponds to the working .fastq name
 
+# note: echo's -e option is what allows you to use the \t delimiter (escape sequence) 
+
+echo -e "${work_file}\t${read_count}" > "readcount_${work_file}.txt"
+
+# then you can cat *.txt from the challenge3 dir and it'll show the reads for each file
 
 
 
