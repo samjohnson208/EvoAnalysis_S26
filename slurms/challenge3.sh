@@ -36,12 +36,11 @@ read_count=$(grep -c "^@" "$work_file")
 # note: echo's -e option is what allows you to use the \t delimiter (escape sequence) 
 # this %.fastq also removes the .fastq string from work_file when creating the output name
 
-echo -e "${work_file}\t${read_count}" > "readcount_${work_file%.fastq}.txt"
+echo -e "${work_file}\t${read_count}" > /p"readcount_${work_file%.fastq}.txt"
 
 # then you can cat *.txt from the challenge3 dir and it'll show the reads for each file
 
-
-
+# cp'd just the output (.txt files) to the git repo. didn't want to push data up there.
 
 
 
