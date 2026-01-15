@@ -18,7 +18,7 @@ module load fastqc/0.12.1
 #change directory to trimmed data
 cd /project/evoanalysis/d3challenge_fq
 
-OUTDIR="/project/evoanalysis/sjohn208/EvoAnalysis_S26/fastq_to_vcf_exercise" # EDIT TO WHERE YOU WANT OUTPUT TO GO
+OUTDIR="/project/evoanalysis/sjohn208/fastq_to_vcf_exercise" # EDIT TO WHERE YOU WANT OUTPUT TO GO
 # mkdir -p $OUTDIR (done already)
 
 #assign all files samples, each of which is in its own directory into a bash array
