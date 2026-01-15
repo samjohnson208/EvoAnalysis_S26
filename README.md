@@ -16,7 +16,22 @@ See comments within the script for functionality, see outupt in:
 /project/evoanalysis/sjohn208/EvoAnalysis_S26/challenge3_output
 ```
 
+## Day 4 Work - Going from .fastq to .vcf
 
+Fastqc as an array:
+
+```
+module load fastqc/0.12.1
+sbatch fastqcarray.sh
+```
+
+to generate the multiqc report for each of those...
+
+```
+module load multiqc/1.24.1
+# cd to directory of fastqc reports
+multiqc .
+```
 
 
 

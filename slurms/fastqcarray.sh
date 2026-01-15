@@ -18,7 +18,7 @@ module load fastqc/0.12.1
 #change directory to trimmed data
 cd /project/evoanalysis/d3challenge_fq
 
-OUTDIR="/project/evoanalysis/sjohn208/fastq_to_vcf_exercise" # EDIT TO WHERE YOU WANT OUTPUT TO GO
+OUTDIR="/project/evoanalysis/sjohn208/fastq_to_vcf_exercise/fastqc_reports" # EDIT TO WHERE YOU WANT OUTPUT TO GO
 # mkdir -p $OUTDIR (done already)
 
 #assign all files samples, each of which is in its own directory into a bash array
@@ -33,3 +33,6 @@ sample=${allsamples[($SLURM_ARRAY_TASK_ID-1)]}
 # change to directory into sample and run fastqc 
 cd $sample 
 fastqc -t 38 -o $OUTDIR *fastq
+# i imagine that this now needs only to be 1 thread, since we're grabbing one of the fastq's
+# at a time... probably a mistake to have 38 threads. 
+
